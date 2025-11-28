@@ -1,0 +1,23 @@
+{
+  "name": "flag-quiz-api",
+  "version": "1.0.0",
+  "description": "Serverless API for random flag quiz game",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only api/games/tebakbendera.ts",
+    "build": "tsc",
+    "start": "node dist/api/games/tebakbendera.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
