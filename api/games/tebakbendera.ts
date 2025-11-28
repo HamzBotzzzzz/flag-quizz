@@ -5,11 +5,13 @@ async function scrape() {
     const response = await axios.get("https://flagcdn.com/en/codes.json", {
       timeout: 30000,
       headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
       },
     })
     const data = response.data
-    const randomKey = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)]
+    const randomKey =
+      Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)]
     return {
       name: data[randomKey],
       img: `https://flagpedia.net/data/flags/ultra/${randomKey}.png`,
@@ -21,7 +23,8 @@ async function scrape() {
         {
           timeout: 30000,
           headers: {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
           },
         },
       )
@@ -40,17 +43,16 @@ export default [
     endpoint: "/api/games/tebakbendera",
     name: "tebak bendera",
     category: "Games",
-    description: "This API endpoint provides a random country flag quiz. Each request delivers a new challenge featuring a country's flag and its name, prompting users to identify the correct country based on its flag. This endpoint is ideal for geography quizzes, educational applications, or any platform focused on testing knowledge of world flags. The response will be a JSON object containing the flag image URL and the correct country name.",
+    description:
+      "This API endpoint provides a random country flag quiz. Each request delivers a new challenge featuring a country's flag and its name.",
     tags: ["Games", "Flag Quiz", "Geography", "Education", "World"],
-    example: "",
     parameters: [],
     isPremium: false,
     isMaintenance: false,
     isPublic: true,
-    async run({ req }) {
+    async run() {
       try {
         const data = await scrape()
-
         if (!data) {
           return {
             status: false,
@@ -58,10 +60,9 @@ export default [
             code: 500,
           }
         }
-
         return {
           status: true,
-          data: data,
+          data,
           timestamp: new Date().toISOString(),
         }
       } catch (error: any) {
@@ -78,17 +79,16 @@ export default [
     endpoint: "/api/games/tebakbendera",
     name: "tebak bendera",
     category: "Games",
-    description: "This API endpoint provides a random country flag quiz. Each request delivers a new challenge featuring a country's flag and its name, prompting users to identify the correct country based on its flag. This endpoint is ideal for geography quizzes, educational applications, or any platform focused on testing knowledge of world flags. The response will be a JSON object containing the flag image URL and the correct country name.",
+    description:
+      "This API endpoint provides a random country flag quiz. Each request delivers a new challenge featuring a country's flag and its name.",
     tags: ["Games", "Flag Quiz", "Geography", "Education", "World"],
-    example: "",
     requestBody: {},
     isPremium: false,
     isMaintenance: false,
     isPublic: true,
-    async run({ req }) {
+    async run() {
       try {
         const data = await scrape()
-
         if (!data) {
           return {
             status: false,
@@ -96,10 +96,9 @@ export default [
             code: 500,
           }
         }
-
         return {
           status: true,
-          data: data,
+          data,
           timestamp: new Date().toISOString(),
         }
       } catch (error: any) {
