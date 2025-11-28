@@ -1,6 +1,5 @@
 {
   "builds": [
-    { "src": "api/**/*.ts", "use": "@vercel/node" }
-  ],
-  "outputDirectory": "."
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ]
 }
